@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guga_portfolio/colors.dart';
 import 'package:guga_portfolio/widgets/profile_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -7,33 +8,32 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsApp.blue,
       body: ListView(
         children: [
-          Card(
-            shape: Border.all(),
-            margin: const EdgeInsets.all(0),
-            color: Colors.lightBlueAccent,
-            child: Column(
-              children: [
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ProfileWidget(
-                      title: 'Mobile Developer',
-                      photoPath: "assets/images/gabriel.jpg",
-                      name: 'Gabriel Donato',
-                      description: 'Olá eu sou o Gabriel',
-                    ),
-                    ProfileWidget(
-                      title: 'Mobile Developer',
-                      photoPath: "assets/images/gustavo.jpg",
-                      name: 'Gustavo Silva',
-                      description: 'Olá eu sou o Gustavo',
-                    ),
-                  ],
-                ),
-              ],
-            ),
+          Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.1,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ProfileWidget(
+                    title: 'Mobile Developer',
+                    photoPath: "assets/images/gabriel.png",
+                    name: 'Gabriel Donato',
+                    description: 'Olá eu sou o Gabriel',
+                  ),
+                  ProfileWidget(
+                    title: 'Mobile Developer',
+                    photoPath: "assets/images/gustavo.png",
+                    name: 'Gustavo Silva',
+                    description: 'Olá eu sou o Gustavo',
+                  ),
+                ],
+              ),
+            ],
           )
         ],
       ),

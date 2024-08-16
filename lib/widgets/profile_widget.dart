@@ -5,6 +5,7 @@ class ProfileWidget extends StatelessWidget {
   final String name;
   final String description;
   final String photoPath;
+
   const ProfileWidget({
     super.key,
     required this.title,
@@ -15,47 +16,99 @@ class ProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: MediaQuery.sizeOf(context).height * 0.15,
+    return Center(
+      child: Container(
+        width: MediaQuery.sizeOf(context).width * 0.2,
+        height: MediaQuery.sizeOf(context).height * 0.75,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          // color: Colors.black,
         ),
-        CircleAvatar(
-          minRadius: MediaQuery.sizeOf(context).height * 0.15,
-          backgroundImage: AssetImage(
-            photoPath,
-          ),
+        child: Stack(
+          children: [
+            // Diagonal Cut Background
+            Positioned.fill(
+              child: ClipPath(
+                clipper: DiagonalClipper(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset(
+                      photoPath,
+                    ),
+                    Expanded(
+                      child: Container(
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            // Content Overlay
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Spacer(),
+                  // Name Text
+                  Text(
+                    name,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  // Description Text
+                  Text(
+                    description,
+                    style: TextStyle(
+                      color: Colors.cyanAccent,
+                      fontSize: 16,
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  // Arrow Icon
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.lightGreenAccent,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.arrow_forward,
+                        color: Colors.black,
+                        size: 20,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-        const SizedBox(
-          height: 16,
-        ),
-        Text(
-          title,
-          style: const TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        Text(
-          name,
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        Text(
-          description,
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-            color: Colors.black54,
-          ),
-        )
-      ],
+      ),
     );
   }
+}
+
+// Custom Clipper for Diagonal Cut
+class DiagonalClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, size.height - 65);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
