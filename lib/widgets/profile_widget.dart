@@ -55,32 +55,32 @@ class ProfileWidget extends StatelessWidget {
                   // Name Text
                   Text(
                     name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   // Description Text
                   Text(
                     description,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.cyanAccent,
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   // Arrow Icon
                   Align(
                     alignment: Alignment.bottomRight,
                     child: Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
                         color: Colors.lightGreenAccent,
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_forward,
                         color: Colors.black,
                         size: 20,
