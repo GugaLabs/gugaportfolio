@@ -10,4 +10,7 @@ sealed class ColorsApp {
 
   static const bluelogo1 = Color(0xff02E1FF);
   static const bluelogo2 = Color(0xff38B6FF);
+
+  Color get primary => const Color(0xff38b6ff);
+  Color get black87 => Colors.black87;
 }
