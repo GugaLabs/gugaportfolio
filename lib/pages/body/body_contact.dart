@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BodyContact extends StatelessWidget {
   const BodyContact({super.key});
@@ -35,11 +36,11 @@ class BodyContact extends StatelessWidget {
               ),
             ],
           ),
-          const Row(
+          Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Column(
+              const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CardShadow(
@@ -51,28 +52,29 @@ class BodyContact extends StatelessWidget {
                 child: Wrap(
                   spacing: 10, // crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CardShadow(
+                    const CardShadow(
                       text: 'Linkedin',
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     CardShadow(
                       text: 'Github',
+                      uri: Uri.parse('https://github.com/GugaLabs'),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
-                    CardShadow(
+                    const CardShadow(
                       text: 'Medium',
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
-                    CardShadow(
+                    const CardShadow(
                       text: 'Youtube',
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                   ],
@@ -94,58 +96,77 @@ class CardShadow extends StatelessWidget {
   const CardShadow({
     super.key,
     required this.text,
+    this.uri,
   });
+
+  final Uri? uri;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8), // Arredondamento da borda
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0xff38b6ff),
-            spreadRadius: 0,
-            blurRadius: 0,
-            offset: Offset(2, 4), // Posição da sombra
-          ),
-        ],
-      ),
+    return InkWell(
+      onTap: uri != null
+          ? () async {
+              if (await canLaunchUrl(uri!)) {
+                await launchUrl(uri!);
+              } else if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Ops. Não foi possível abrir o link ;('),
+                  ),
+                );
+              }
+            }
+          : null,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8), // Arredondamento da borda
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(
-            0,
-          ), // Mesmo arredondamento para a imagem
-          child: Container(
-            decoration: BoxDecoration(
-              color: const Color(
-                0xff161618,
-              ),
-              border: Border.all(
-                color: const Color(0xff38b6ff),
-                // Cor da borda
-                width: 2.0, // Largura da borda
-              ),
-              borderRadius: BorderRadius.circular(8), // Arredondamento da borda
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0xff38b6ff),
+              spreadRadius: 0,
+              blurRadius: 0,
+              offset: Offset(2, 4), // Posição da sombra
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(
-                    Icons.email,
-                    color: Color(0xff38b6ff),
-                  ),
-                  const SizedBox(width: 10),
-                  Text(
-                    text,
-                    style:
-                        const TextStyle(color: Color(0xff38b6ff), fontSize: 24),
-                  ),
-                ],
+          ],
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8), // Arredondamento da borda
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(
+              0,
+            ), // Mesmo arredondamento para a imagem
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color(
+                  0xff161618,
+                ),
+                border: Border.all(
+                  color: const Color(0xff38b6ff),
+                  // Cor da borda
+                  width: 2.0, // Largura da borda
+                ),
+                borderRadius:
+                    BorderRadius.circular(8), // Arredondamento da borda
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.email,
+                      color: Color(0xff38b6ff),
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      text,
+                      style: const TextStyle(
+                          color: Color(0xff38b6ff), fontSize: 24),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
