@@ -43,7 +43,7 @@ class BodyContact extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CardShadow(
-                    text: 'gabrielcdonato@gmail.com',
+                    text: 'suporte@gugalabs.com',
                   ),
                 ],
               ),
