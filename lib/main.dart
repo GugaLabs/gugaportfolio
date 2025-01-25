@@ -28,9 +28,11 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/home',
       routes: {
-        '/home': (context) => BlocProvider<HomeTabsCubit>(
-              create: (context) => HomeTabsCubit(),
-              child: const HomePage(),
+        '/home': (context) => SelectionArea(
+              child: BlocProvider<HomeTabsCubit>(
+                create: (context) => HomeTabsCubit(),
+                child: const HomePage(),
+              ),
             ),
         '/projects': (context) => const ProjectsPage(),
       },
