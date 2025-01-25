@@ -5,7 +5,6 @@ import 'package:guga_portfolio/pages/body/body_about.dart';
 import 'package:guga_portfolio/pages/body/body_contact.dart';
 import 'package:guga_portfolio/pages/cubits/cubit/home_tabs_cubit.dart';
 import 'package:guga_portfolio/widgets/scroll_bar_widget.dart';
-import 'package:guga_portfolio/widgets/shadow_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
