@@ -5,7 +5,6 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:guga_portfolio/firebase_options.dart';
 import 'package:guga_portfolio/pages/cubits/cubit/home_tabs_cubit.dart';
 import 'package:guga_portfolio/pages/home_page.dart';
-import 'package:guga_portfolio/pages/projects_page.dart';
 
 void main() async {
   usePathUrlStrategy();
@@ -34,7 +33,6 @@ class MyApp extends StatelessWidget {
                 child: const HomePage(),
               ),
             ),
-        '/projects': (context) => const ProjectsPage(),
       },
     );
   }
