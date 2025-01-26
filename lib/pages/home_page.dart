@@ -97,7 +97,6 @@ class _HomePageState extends State<HomePage> {
                 ),
                 space,
                 space,
-                space,
                 const BodyContact(),
               ],
             ),
