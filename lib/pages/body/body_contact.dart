@@ -17,42 +17,55 @@ class BodyContact extends StatelessWidget {
               fontSize: 48,
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
+          LayoutBuilder(builder: (context, constraints) {
+            final email = Column(
+              children: [
+                Text(
+                  'E-mail',
+                  style: GoogleFonts.urbanist(
+                    fontSize: 32,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const CardShadow(
+                  text: 'sacgugalabs@gmail.com',
+                ),
+              ],
+            );
+            final socialMedia = Column(
+              children: [
+                Text(
+                  'Social Media',
+                  style: GoogleFonts.urbanist(
+                    fontSize: 32,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                CardShadow(
+                  text: 'Github',
+                  uri: Uri.parse('https://github.com/GugaLabs'),
+                )
+              ],
+            );
+            if (constraints.maxWidth < 900) {
+              return Column(
                 children: [
-                  Text(
-                    'E-mail',
-                    style: GoogleFonts.urbanist(
-                      fontSize: 32,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  const CardShadow(
-                    text: 'sacgugalabs@gmail.com',
-                  ),
+                  email,
+                  const SizedBox(height: 32),
+                  socialMedia,
                 ],
-              ),
-              Column(
-                children: [
-                  Text(
-                    'Social Media',
-                    style: GoogleFonts.urbanist(
-                      fontSize: 32,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  CardShadow(
-                    text: 'Github',
-                    uri: Uri.parse('https://github.com/GugaLabs'),
-                  )
-                ],
-              ),
-            ],
-          ),
+              );
+            }
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                email,
+                socialMedia,
+              ],
+            );
+          }),
           SizedBox(
             height: MediaQuery.sizeOf(context).height / 6,
           ),
