@@ -20,39 +20,36 @@ class BodyContact extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
-                'E-mail',
-                style: GoogleFonts.urbanist(
-                  fontSize: 32,
-                  color: Colors.white,
-                ),
-              ),
-              Text(
-                'Social Media',
-                style: GoogleFonts.urbanist(
-                  fontSize: 32,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Column(
                 children: [
-                  CardShadow(
+                  Text(
+                    'E-mail',
+                    style: GoogleFonts.urbanist(
+                      fontSize: 32,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  const CardShadow(
                     text: 'sacgugalabs@gmail.com',
                   ),
                 ],
               ),
-              Flexible(
-                child: CardShadow(
-                  text: 'Github',
-                  uri: Uri.parse('https://github.com/GugaLabs'),
-                ),
+              Column(
+                children: [
+                  Text(
+                    'Social Media',
+                    style: GoogleFonts.urbanist(
+                      fontSize: 32,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  CardShadow(
+                    text: 'Github',
+                    uri: Uri.parse('https://github.com/GugaLabs'),
+                  )
+                ],
               ),
             ],
           ),
