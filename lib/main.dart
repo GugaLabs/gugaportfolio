@@ -25,9 +25,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
         useMaterial3: true,
       ),
-      initialRoute: '/home',
       routes: {
-        '/home': (context) => SelectionArea(
+        '/': (context) => SelectionArea(
               child: BlocProvider<HomeTabsCubit>(
                 create: (context) => HomeTabsCubit(),
                 child: const HomePage(),
