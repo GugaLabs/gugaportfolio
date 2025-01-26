@@ -88,6 +88,7 @@ class _HomePageState extends State<HomePage> {
         color: const Color(0xff1C1C1E),
         child: ScrollBarWidget(
           child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
