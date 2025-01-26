@@ -2,39 +2,44 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'package:guga_portfolio/colors.dart';
+import 'package:guga_portfolio/pages/animations/gradient_widget.dart';
+import 'package:guga_portfolio/pages/animations/particle_widget.dart';
+import 'package:guga_portfolio/pages/animations/circle_particle.dart';
 
 class BodyAboutUs extends StatelessWidget {
   const BodyAboutUs({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final isMobile = constraints.maxWidth < 768;
+    return ParticlesBackground(
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final isMobile = constraints.maxWidth < 768;
 
-        return Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (!isMobile)
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Expanded(child: TeamDescription()),
-                    const SizedBox(width: 16),
-                    Expanded(child: TeamMembers()),
-                  ],
-                )
-              else ...[
-                const TeamDescription(),
-                const SizedBox(height: 24),
-                TeamMembers(),
+          return Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (!isMobile)
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Expanded(child: TeamDescription()),
+                      const SizedBox(width: 16),
+                      Expanded(child: TeamMembers()),
+                    ],
+                  )
+                else ...[
+                  const TeamDescription(),
+                  const SizedBox(height: 24),
+                  TeamMembers(),
+                ],
               ],
-            ],
-          ),
-        );
-      },
+            ),
+          );
+        },
+      ),
     );
   }
 }

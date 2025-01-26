@@ -4,7 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:guga_portfolio/colors.dart';
 import 'package:guga_portfolio/pages/body/body_begin.dart';
 import 'package:guga_portfolio/pages/body/body_contact.dart';
-import 'package:guga_portfolio/pages/body/body_team.dart';
+import 'package:guga_portfolio/pages/body/body_about_us.dart';
+import 'package:guga_portfolio/pages/body/body_project.dart';
 import 'package:guga_portfolio/pages/cubits/cubit/home_tabs_cubit.dart';
 import 'package:guga_portfolio/pages/animations/particle_widget.dart';
 import 'package:guga_portfolio/widgets/scroll_bar_widget.dart';
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _sections = const [
     BodyBegin(),
     BodyAboutUs(),
-    BodyContact(),
+    BodyProject(),
     BodyContact(),
   ];
 
