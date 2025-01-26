@@ -8,12 +8,6 @@ class HomeTabsCubit extends Cubit<HomeTabsState> {
       : super(
           HomeTabsInitial(
             currentHeader: 0,
-            headers: const [
-              'Home',
-              'About',
-              'Carreira',
-              'Contato',
-            ],
           ),
         );
 

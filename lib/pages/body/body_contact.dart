@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:guga_portfolio/pages/animations/molecule_widget.dart';
+import 'package:guga_portfolio/pages/animations/particle_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BodyContact extends StatelessWidget {
@@ -7,70 +9,72 @@ class BodyContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Text(
-            'Contato',
-            style: GoogleFonts.museoModerno(
-              color: Colors.white,
-              fontSize: 48,
+    return MoleculesBackground(
+      child: Center(
+        child: Column(
+          children: [
+            Text(
+              'Contato',
+              style: GoogleFonts.museoModerno(
+                color: Colors.white,
+                fontSize: 48,
+              ),
             ),
-          ),
-          LayoutBuilder(builder: (context, constraints) {
-            final email = Column(
-              children: [
-                Text(
-                  'E-mail',
-                  style: GoogleFonts.urbanist(
-                    fontSize: 32,
-                    color: Colors.white,
+            LayoutBuilder(builder: (context, constraints) {
+              final email = Column(
+                children: [
+                  Text(
+                    'E-mail',
+                    style: GoogleFonts.urbanist(
+                      fontSize: 32,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 16),
-                CardShadow(
-                  text: 'sacgugalabs@gmail.com',
-                  uri: Uri.parse('mailto:sacgugalabs@gmail.com'),
-                ),
-              ],
-            );
-            final socialMedia = Column(
-              children: [
-                Text(
-                  'Social Media',
-                  style: GoogleFonts.urbanist(
-                    fontSize: 32,
-                    color: Colors.white,
+                  const SizedBox(height: 16),
+                  CardShadow(
+                    text: 'sacgugalabs@gmail.com',
+                    uri: Uri.parse('mailto:sacgugalabs@gmail.com'),
                   ),
-                ),
-                const SizedBox(height: 16),
-                CardShadow(
-                  text: 'Github',
-                  uri: Uri.parse('https://github.com/GugaLabs'),
-                )
-              ],
-            );
-            if (constraints.maxWidth < 900) {
-              return Column(
+                ],
+              );
+              final socialMedia = Column(
+                children: [
+                  Text(
+                    'Social Media',
+                    style: GoogleFonts.urbanist(
+                      fontSize: 32,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  CardShadow(
+                    text: 'Github',
+                    uri: Uri.parse('https://github.com/GugaLabs'),
+                  )
+                ],
+              );
+              if (constraints.maxWidth < 900) {
+                return Column(
+                  children: [
+                    email,
+                    const SizedBox(height: 32),
+                    socialMedia,
+                  ],
+                );
+              }
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   email,
-                  const SizedBox(height: 32),
                   socialMedia,
                 ],
               );
-            }
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                email,
-                socialMedia,
-              ],
-            );
-          }),
-          SizedBox(
-            height: MediaQuery.sizeOf(context).height / 6,
-          ),
-        ],
+            }),
+            SizedBox(
+              height: MediaQuery.sizeOf(context).height / 6,
+            ),
+          ],
+        ),
       ),
     );
   }

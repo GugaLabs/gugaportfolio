@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:guga_portfolio/pages/animations/particle_widget.dart';
 import 'package:guga_portfolio/widgets/profile_card.dart';
 
-class BodyAbout extends StatelessWidget {
-  const BodyAbout({super.key});
+class BodyBegin extends StatelessWidget {
+  const BodyBegin({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,21 +32,23 @@ class BodyAbout extends StatelessWidget {
               );
             }
             return const IntrinsicHeight(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    child: _GabrielProfile(),
-                  ),
-                  VerticalDivider(
-                    color: Color(0xff38b6ff),
-                    thickness: 4,
-                  ),
-                  Expanded(
-                    child: _GustavoProfile(),
-                  ),
-                ],
+              child: ParticlesBackground(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: _GabrielProfile(),
+                    ),
+                    VerticalDivider(
+                      color: Color(0xff38b6ff),
+                      thickness: 4,
+                    ),
+                    Expanded(
+                      child: _GustavoProfile(),
+                    ),
+                  ],
+                ),
               ),
             );
           }),
@@ -56,9 +59,7 @@ class BodyAbout extends StatelessWidget {
 }
 
 class _GustavoProfile extends StatelessWidget {
-  const _GustavoProfile({
-    super.key,
-  });
+  const _GustavoProfile();
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +72,7 @@ class _GustavoProfile extends StatelessWidget {
 }
 
 class _GabrielProfile extends StatelessWidget {
-  const _GabrielProfile({
-    super.key,
-  });
+  const _GabrielProfile();
 
   @override
   Widget build(BuildContext context) {
