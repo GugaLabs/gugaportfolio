@@ -28,8 +28,9 @@ class BodyContact extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                const CardShadow(
+                CardShadow(
                   text: 'sacgugalabs@gmail.com',
+                  uri: Uri.parse('mailto:sacgugalabs@gmail.com'),
                 ),
               ],
             );
