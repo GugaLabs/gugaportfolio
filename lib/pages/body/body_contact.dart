@@ -49,35 +49,9 @@ class BodyContact extends StatelessWidget {
                 ],
               ),
               Flexible(
-                child: Wrap(
-                  spacing: 10, // crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const CardShadow(
-                      text: 'Linkedin',
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    CardShadow(
-                      text: 'Github',
-                      uri: Uri.parse('https://github.com/GugaLabs'),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    const CardShadow(
-                      text: 'Medium',
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    const CardShadow(
-                      text: 'Youtube',
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                  ],
+                child: CardShadow(
+                  text: 'Github',
+                  uri: Uri.parse('https://github.com/GugaLabs'),
                 ),
               ),
             ],
