@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'package:guga_portfolio/colors.dart';
-import 'package:guga_portfolio/pages/animations/gradient_widget.dart';
 import 'package:guga_portfolio/pages/animations/particle_widget.dart';
-import 'package:guga_portfolio/pages/animations/circle_particle.dart';
 
 class BodyAboutUs extends StatelessWidget {
   const BodyAboutUs({super.key});
