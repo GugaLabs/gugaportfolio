@@ -5,6 +5,8 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:guga_portfolio/firebase_options.dart';
 import 'package:guga_portfolio/pages/cubits/cubit/home_tabs_cubit.dart';
 import 'package:guga_portfolio/pages/home_page.dart';
+import 'package:guga_portfolio/widgets/split_pane_example.dart';
+import 'package:guga_portfolio/widgets/split_view.dart';
 
 void main() async {
   usePathUrlStrategy();
@@ -19,6 +21,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return MaterialApp(home: SplitPaneExample());
+
+    // MaterialApp(
+    //   home: Scaffold(
+    //     appBar: AppBar(title: const Text('Responsive Split View')),
+    //     body: SplitView(
+    //       navigationBuilder: (context) => Drawer(
+    //         child: ListView(
+    //           children: const [
+    //             ListTile(title: Text('Home')),
+    //             ListTile(title: Text('Settings')),
+    //           ],
+    //         ),
+    //       ),
+    //       contentBuilder: (context) => const Center(
+    //         child: Text('Main Content Area'),
+    //       ),
+    //     ),
+    //   ),
+    // );
+
     return MaterialApp(
       title: 'GugaLabs',
       theme: ThemeData(

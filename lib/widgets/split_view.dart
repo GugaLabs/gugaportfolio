@@ -39,3 +39,43 @@ class SplitView extends StatelessWidget {
     }
   }
 }
+//TODO! melhorar animação
+
+// import 'package:flutter/material.dart';
+
+// class SplitView extends StatelessWidget {
+//   const SplitView({
+//     super.key,
+//     required this.navigationBuilder,
+//     required this.contentBuilder,
+//     this.breakpoint = 600,
+//     this.navigationWidth = 300,
+//   });
+
+//   final WidgetBuilder navigationBuilder;
+//   final WidgetBuilder contentBuilder;
+//   final double breakpoint;
+//   final double navigationWidth;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final screenWidth = MediaQuery.of(context).size.width;
+//     final bool isWideScreen = screenWidth >= breakpoint;
+
+//     return AnimatedCrossFade(
+//       duration: const Duration(milliseconds: 300),
+//       crossFadeState:
+//           isWideScreen ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+//       firstChild: Row(
+//         children: [
+//           SizedBox(
+//             width: navigationWidth,
+//             child: navigationBuilder(context),
+//           ),
+//           Expanded(child: contentBuilder(context)),
+//         ],
+//       ),
+//       secondChild: contentBuilder(context),
+//     );
+//   }
+// }
